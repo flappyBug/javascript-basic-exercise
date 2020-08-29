@@ -11,9 +11,6 @@ export default function arrayToList(array) {
   if (array.length === 0) {
     throw new Error('Creating list from empty array');
   }
-  const list = { head: null };
-  array.reverse().forEach((value) => {
-    list.head = { value, next: list.head };
-  });
-  return list.head;
+  return array.reverse()
+    .reduce((tail, value) => ({ value, next: tail }), null);
 }

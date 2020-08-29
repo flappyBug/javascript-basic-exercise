@@ -6,8 +6,10 @@ export function range(start, end) {
   //
   // * Please implement this function and pass all the tests in range_and_array_spec.js.
   // * Please do NOT modify the signature of the function.
-
-  throw new Error('Please delete this line and implement the function');
+  if (start > end) {
+    return range(end + 1, start + 1).reverse();
+  }
+  return Array.from({ length: end - start }, (_, index) => start + index);
 }
 
 export function sum(...numbers) {
@@ -17,6 +19,5 @@ export function sum(...numbers) {
   //
   // * Please implement this function and pass all the tests in range_and_array_spec.js.
   // * Please do NOT modify the signature of the function.
-
-  throw new Error('Please delete this line and implement the function');
+  return numbers.reduce((acc, cur) => acc + cur, 0);
 }
